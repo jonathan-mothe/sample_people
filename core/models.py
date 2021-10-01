@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 
 class PeopleManager(models.Manager):
@@ -35,8 +36,10 @@ class People(models.Model):
 
     @property
     def idade(self):
-        # TODO
-        pass
+        today = date.today()
+        born = self.data_nasc
+        return today.year - born.year
+
 
     def __str__(self):
         return self.nome
