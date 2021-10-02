@@ -57,3 +57,8 @@ Usando a API de modelos do Django, elabore queries para atender as seguintes ope
 ```
 
 7. Implemente uma função para buscar pessoas por nome, ou parte do nome (Case insensitive)
+
+```
+    def search_people(self, nome):
+        return self.model.objects.filter(nome__icontains=nome)
+```

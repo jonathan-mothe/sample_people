@@ -10,6 +10,9 @@ class PeopleManager(models.Manager):
     def starts_with(self, text):
         return self.model.objects.filter(nome__istartswith=text)
 
+    def search_people(self, nome):
+        return self.model.objects.filter(nome__icontains=nome)
+
 
 
 class People(models.Model):
